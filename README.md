@@ -16,15 +16,15 @@ During the development of the rendering engine [Three.V8](https://github.com/fyn
 
 We first normalized the input image to its minimum/maximum ranges of its RGB channels. The normalized image is sent to a JPEG encoder, which produces Level0.jpg. 
 
-We then decode and denormalize the JPEG data and subtract it from the HDR input, which gives us the residual of the 1st layer. We normalize and encode the residual the same way as the input image, which produces Level1.jpg.
+We then decode and denormalize the JPEG data and subtract it from the HDR input, which gives us the residual of the 1st level. We normalize and encode the residual the same way as the input image, which produces Level1.jpg.
 
-We do it iteratively up to 6 layers. The outputs are Level0.jpg ~ Level5.jpg.
+We do it iteratively up to 6 levels. The outputs are Level0.jpg ~ Level5.jpg.
 
 We store the filename information and the minimum/maximum range values as a separate CSV file, which is necessary for decoding.
 
 # Decoding 
 
-The JPEG images from the first n layers are taken as input. They are simply decoded and denormalize and added together.
+The JPEG images from the first n levels are taken as input. They are simply decoded and denormalize and added together.
 
 Because that JPEG decoders are widely available, and the decoding process is extremely simple, the format is compatible almost everywhere from desktop to mobile to web.
 
