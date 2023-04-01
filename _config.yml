@@ -1,5 +1,5 @@
 theme: minima
-title: Mixed-resolution Grid of Light Probes
+title: Cascaded Residual Encoding for HDR Lightmap Compression
 
 plugins:
   - jekyll-titles-from-headings

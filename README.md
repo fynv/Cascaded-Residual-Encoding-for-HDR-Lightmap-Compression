@@ -1,4 +1,6 @@
-# Cascaded Residual Encoding for HDR Lightmap Compression
+Fei Yang
+
+Apr. 2023
 
 ![](Pic.png)
 
