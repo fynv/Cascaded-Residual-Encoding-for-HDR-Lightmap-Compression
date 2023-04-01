@@ -1,0 +1,8 @@
+theme: minima
+title: Mixed-resolution Grid of Light Probes
+
+plugins:
+  - jekyll-titles-from-headings
+
+titles_from_headings:
+  enabled: false
