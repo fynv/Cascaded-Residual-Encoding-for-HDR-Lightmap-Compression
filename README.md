@@ -10,7 +10,7 @@ However, one small branch of image compression has been relatively overlooked, w
 
 In computer graphics, HDR assets are usually related to light baking. For realistic reproduction of a scene that contains complicated lighting, a 3D application usually needs to store pre-baked environment maps, probes and lightmaps, which may contain large amount of asset data. Among them, lightmaps are exclusively represented in HDR image form. Their dense nature plus the lack of an efficient storage format makes their size issue very frequently stand out.
 
-During the development of the rendering engine [Three.V8](https://github.com/fynv/three.v8), we also hit this problem. Because of that the system is mobile & web targeting, transfer efficiency is among our top concerns. After testing several ideas, we found that a JPEG based solution performs surprisingly well. It is a cascaded encoding scheme that invokes the JPEG encoder and decoder several times during compression. To our best effort, we cannot find it in any existing literature, so we are sharing it here.
+During the development of the rendering engine [Three.V8](https://github.com/fynv/three.v8), we also hit this problem. Because of that the system is mobile & web targeting, transfer efficiency is among our top concerns. After testing several ideas, we found that a JPEG based solution performs surprisingly well. It is a cascaded encoding scheme that invokes the JPEG encoder and decoder several times during compression. To our best knowledge, we do not see it in any existing literature, so we are sharing it here.
 
 # Encoding
 
