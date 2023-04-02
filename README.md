@@ -32,7 +32,9 @@ Because that JPEG decoders are widely available, and the decoding process is ext
 
 We have not tested very widely yet. According to the data we have, using the output of the first 4 levels, satisfying result can be restored in most cases. The bit rate (number of bits of all 4 files added together divided by the number of pixels) is between 3bpp and 5bpp.
 
+# Code and Example
 
+<iframe src="/Cascaded-Residual-Encoding-for-HDR-Lightmap-Compression/web" style="width: 640px; height: 480px; border: 0px"></iframe>
 
 
 
