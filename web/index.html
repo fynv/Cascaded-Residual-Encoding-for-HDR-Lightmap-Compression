@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Server</title>
+        <style type="text/css" media="screen">
+            body {
+              margin: 0;
+              text-align: center;
+              overflow: hidden; 
+            }
+            .label {
+                position:  absolute;
+                border-radius: 10%; 
+                padding: 5px; 
+                background: #ff8; 
+                transform:translateX(-50%);
+            }
+        </style>
+    </head>
+    <body>
+    </body>
+    
+    <script type="module">
+        let scene_url = 'scene/index.js';
+        const params = new URLSearchParams(window.location.search);
+        if(params.has('scene_url'))
+        {
+            scene_url = params.get('scene_url');
+        }
+        import {MetaBrowser} from './engine/meta.js'
+        const browser = new MetaBrowser();
+        browser.load_url(scene_url);
+    </script>
+</html>
+

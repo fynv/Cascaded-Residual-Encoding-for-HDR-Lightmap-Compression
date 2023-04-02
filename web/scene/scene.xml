@@ -1,0 +1,7 @@
+﻿<?xml version="1.0"?>
+<document>
+	<scene>
+		<model src="assets\models\fireplace_room_atlas.glb" lightmap="assets\textures\lightmap.csv"/>
+		<env_light type="cube" path="assets\textures" posx="fireplace_face0.hdr" negx="fireplace_face1.hdr" posy="fireplace_face2.hdr" negy="fireplace_face3.hdr" posz="fireplace_face4.hdr" negz="fireplace_face5.hdr" probe_position="1.5,1.5,-1.5"/>
+	</scene>
+</document>
