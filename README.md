@@ -34,7 +34,27 @@ We have not tested very widely yet. According to the data we have, using the out
 
 # Code and Example
 
+Standalone C++ code for encoding & decoding: [GitHub](https://github.com/fynv/Cascaded-Residual-Encoding-for-HDR-Lightmap-Compression). 
+
+[stb_image](https://github.com/nothings/stb) is used for JPEG encode/decode.
+
+JavaScript decoding [demo](/Cascaded-Residual-Encoding-for-HDR-Lightmap-Compression/web):
+
+(Scene data from [McGuire Computer Graphics Archive](https://casual-effects.com/data))
+
 <iframe src="/Cascaded-Residual-Encoding-for-HDR-Lightmap-Compression/web" style="width: 640px; height: 480px; border: 0px"></iframe>
+
+Decoding code starting from line 713 of:
+[https://fynv.github.io/Cascaded-Residual-Encoding-for-HDR-Lightmap-Compression/web/engine/meta.js](https://fynv.github.io/Cascaded-Residual-Encoding-for-HDR-Lightmap-Compression/web/engine/meta.js)
+
+```js
+...
+else if (ext=='csv')
+{
+    ...
+}
+```
+Web decoding is done using fixed functions from [Three.js](https://github.com/mrdoob/three.js/) only.
 
 
 
