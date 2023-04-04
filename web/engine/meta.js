@@ -721,11 +721,13 @@ const model = {
                     let target = null;
                     
                     const geometry = new PlaneBufferGeometry(2,2);
-                    const material = new MeshStandardMaterial();                             
+                    const material = new MeshStandardMaterial();
                     material.blending = CustomBlending;
                     material.blendSrc = OneFactor;
                     material.blendDst = OneFactor;
                     const plane = new Mesh(geometry, material);
+                    let scene = new Scene();
+                    scene.add(plane);
                     
                     let path = img_url.match(/(.*)[\/\\]/)[1]||'';
                     let lines = text.split(/\r?\n/);
@@ -746,6 +748,7 @@ const model = {
                                     if (child instanceof Mesh) {
                                         child.material.lightMap = target.texture;
                                         child.material.lightMapIntensity = 3.1416;
+                                        child.material.needsUpdate = true;
                                     }
                                 });
                                 
@@ -759,18 +762,16 @@ const model = {
                             renderer.setRenderTarget(target); 
                             
                             {
-                                let scene = new Scene();
-                                scene.add(plane);
                                 material.emissive = new Color(range_low.x, range_low.y, range_low.z);
                                 material.emissiveMap = null;
+                                material.needsUpdate = true;
                                 renderer.render(scene, camera); 
                             }
 
-                            {
-                                let scene = new Scene();
-                                scene.add(plane);
+                            {                                
                                 material.emissive = new Color(range_high.x - range_low.x, range_high.y - range_low.y, range_high.z - range_low.z); 
                                 material.emissiveMap = img_in;
+                                material.needsUpdate = true;
                                 renderer.render(scene, camera);
                             }
                             
