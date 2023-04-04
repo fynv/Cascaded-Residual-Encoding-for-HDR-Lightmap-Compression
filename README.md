@@ -56,12 +56,7 @@ else if (ext=='csv')
 ```
 Web decoding is done using fixed functions from [Three.js](https://github.com/mrdoob/three.js/) only.
 
+# See also 
 
-
-
-
-
-
-
-
-
+Efficient encoding can also be achieved based on the HDR<->RGBM conversion. When used together with a high compression rate image format that supports an alpha channel. WebP is mentioned in
+[https://dqlin.xyz/tech/2016/12/02/04_hdr/](https://dqlin.xyz/tech/2016/12/02/04_hdr/), which is ideal for that.
