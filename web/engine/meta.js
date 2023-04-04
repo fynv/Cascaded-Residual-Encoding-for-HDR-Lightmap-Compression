@@ -779,7 +779,57 @@ const model = {
                         });
                     }
                }
-            }           
+            }
+            else if (ext=='png' || ext == 'webp')
+            {               
+                doc.textureLoader.load(img_url, (img)=>{
+                    img.flipY = false;                                    
+                    let camera = new OrthographicCamera( - 1, 1, 1, - 1, 0, 1 );                     
+                    
+                    let width = img.image.width;
+                    let height = img.image.height;                    
+                    let target = new WebGLRenderTarget(width, height, { depthBuffer: false, type: HalfFloatType });                                        
+                    
+                    model.traverse((child) => {
+                        if (child instanceof Mesh) {
+                            child.material.lightMap = target.texture;
+                            child.material.lightMapIntensity = 3.1416;
+                            child.material.needsUpdate = true;
+                        }
+                    }); 
+                    
+                    const geometry = new PlaneBufferGeometry(2,2);
+                    const material = new MeshStandardMaterial();                   
+                    const plane = new Mesh(geometry, material);
+                    let scene = new Scene();
+                    scene.add(plane);
+                    
+                    let renderer = doc.browser.renderer;
+                    renderer.setRenderTarget(target);
+                    renderer.setClearColor(new Color(0.0, 0.0, 0.0));
+                    renderer.setClearAlpha(0.0);
+                    renderer.clearColor();
+                    
+                    renderer.setRenderTarget(target); 
+                    
+                    material.map = img;
+                    material.needsUpdate = true;
+                    renderer.render(scene, camera); 
+
+                    material.blending = CustomBlending;
+                    material.blendSrc = DstAlphaFactor;
+                    material.blendDst = ZeroFactor;
+                    material.map = null;
+                    material.emissive = new Color(16.0, 16.0, 16.0); 
+                    material.emissiveMap = img;
+                    material.needsUpdate = true;
+                    renderer.render(scene, camera);
+                    
+                    renderer.setRenderTarget(null);
+                    
+                 });
+            }
+            
         }
        
         if (parent != null) {
